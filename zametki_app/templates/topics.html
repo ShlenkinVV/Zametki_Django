@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block header %}
+ <h1>Темы</h1>
+{% endblock header %}
+
+
+{% block content %}
+
+<ul>
+    {% for topic in topics %}
+        <li>
+            <h3>
+                <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+            </h3>
+        </li>
+        
+    {% empty %}
+        <li>Темы ещё не добавлены</li>
+    {% endfor %}
+   
+</ul>
+
+<h3><a href="{% url 'new_topic' %}">Добавить новую тему:</a></h3>
+
+{% endblock content %}
